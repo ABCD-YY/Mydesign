@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="screen-trans-1/sass/screen-trans-1.css">
+  <script src="https://kit.fontawesome.com/a79ffbc502.js" crossorigin="anonymous"></script>
+  <script>
+    (function (d) {
+      var config = {
+        kitId: 'mnd0ijs',
+        scriptTimeout: 3000,
+        async: true
+      },
+        h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+    })(document);
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__title">
+      <a href="http://127.0.0.1:5500/first/index.html" class="header__link">
+        アニメーション<br>デザイン集
+      </a>
+    </div>
+    <nav class="header__nav">
+      <li class="header__item">
+        <a href="http://127.0.0.1:5500/first/index.html" class="header__link">トップ</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">動き</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">デザイン</a>
+      </li>
+    </nav>
+  </header>
+  <main class="main">
+    <div class="main__heading">
+      <div class="main__icon">
+        <!-- <img src="slide-1/Frame 1.png"> -->
+      </div>
+      <h1 class="main__title">画面遷移</h1>
+      <div class="main__details">
+        <ul>
+          <li class="main__text">
+            <span>動きの役割</span>
+            ページを遷移させる
+          </li>
+          <li class="main__text">
+            <span>動くきっかけ</span>画面の読み込み後
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main__contents">
+      <a href="screen-trans-1/screen-trans.html" class="main__link main__content">背景色が伸びる（左から右）</a>
+    </div>
+  </main>
+  <script src="script/main.js"></script>
+</body>
+</html>

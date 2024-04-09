@@ -1,0 +1,26 @@
+.header {
+  font-size: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12rem;
+  margin: 0 15rem;
+  &__title {
+    text-align: center;
+  }
+  &__nav {
+    display: flex;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    padding-left: 6rem;
+  }
+  &__link {
+    color: $color-black-2;
+  }
+}
+.fa-solid {
+  font-size: 1.6rem;
+  padding-right: 1rem;
+}

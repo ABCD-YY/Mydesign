@@ -1,0 +1,55 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: noto-sans-cjk-jp, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #F2F0E9;
+  box-sizing: border-box !important;
+  position: relative;
+  &>* {
+    padding: 0;
+    margin: 0;
+  }
+}
+.animate-title,
+.tween-animate-title {
+  opacity: 0;
+  &.inview {
+    opacity: 1;
+    & .char {
+      display: inline-block;
+    }
+  }
+  & .char {
+    opacity: 0;
+  }
+}
+.animate-title.inview .char {
+  animation-name: kf-animate-chars;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.39, 1.57, 0.58, 1);
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.04s;
+    }
+  }
+}
+@keyframes kf-animate-chars {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

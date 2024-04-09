@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="sass/main.css">
+  <script src="https://kit.fontawesome.com/a79ffbc502.js" crossorigin="anonymous"></script>
+  <script>
+    (function (d) {
+      var config = {
+        kitId: 'mnd0ijs',
+        scriptTimeout: 3000,
+        async: true
+      },
+        h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+    })(document);
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__title">
+      <a href="#" class="header__link">
+        アニメーション<br>デザイン集
+      </a>
+    </div>
+    <nav class="header__nav">
+      <li class="header__item">
+        <a href="#" class="header__link">トップ</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">動き</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">デザイン</a>
+      </li>
+    </nav>
+  </header>
+  <main class="main">
+    <div class="main__header">
+      <div class="main__item active">「動き」に関わるコード</div>
+      <div class="main__item">「デザイン」に関わるコード</div>
+    </div>
+    <div class="main__contents">
+      <a href="loading/loading.html" class="main__link main__content">ローディング</a>
+      <a href="screen-trans/screen-trans.html" class="main__link main__content">画面遷移</a>
+      <a href="slide.html" class="main__link main__content">グローバルナビゲーション</a>
+      <a href="textanime/textanime.html" class="main__link main__content">テキストの動き</a>
+      <a href="tabmenu/tabmenu.html" class="main__link main__content">タブメニュー</a>
+      <a href="slide/slide.html" class="main__link main__content">スライドショー</a>
+      <a href="slide.html" class="main__link main__content">動画</a>
+      <a href="btn/btn.html" class="main__link main__content">ボタン</a>
+      <a href="geometry/geometry.html" class="main__link main__content">背景の動き</a>
+      <a href="pagelink/pegelink.html" class="main__link main__content">ページ内リンク</a>
+      <a href="scroll/scroll.html" class="main__link main__content">スクロールアニメーション</a>
+      <a href="tooltip/tooltip.html" class="main__link main__content">ツールチップ</a>
+    </div>
+  </main>
+  <script src="script/main.js"></script>
+</body>
+
+</html>

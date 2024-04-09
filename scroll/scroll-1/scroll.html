@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="sass/scroll-1.css">
+  <!-- アイコン -->
+  <script src="https://kit.fontawesome.com/a79ffbc502.js" crossorigin="anonymous"></script>
+  <!-- フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <script>
+    (function (d) {
+      var config = {
+        kitId: 'mnd0ijs',
+        scriptTimeout: 3000,
+        async: true
+      },
+        h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+    })(document);
+  </script>
+  <!-- ハイライト -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__title">
+      <a href="http://127.0.0.1:5500/first/index.html" class="header__link">
+        アニメーション<br>デザイン集
+      </a>
+    </div>
+    <nav class="header__nav">
+      <li class="header__item">
+        <a href="http://127.0.0.1:5500/first/index.html" class="header__link">トップ</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">動き</a>
+      </li>
+      <li class="header__item">
+        <i class="fa-solid fa-chevron-down"></i>
+        <a href="#" class="header__link">デザイン</a>
+      </li>
+    </nav>
+  </header>
+  <main class="main">
+    <div class="main__heading">
+      <div class="main__icon">
+        <!-- <img src="Frame 1.png"> -->
+      </div>
+      <h1 class="main__text-title">スクロール監視<br>-対象を監視し実行-</h1>
+      <div class="main__btn">
+        <button class="btn btn--orang mr-60">
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="scroll-demo-1/screen-trans-demo-1.html" target="_blank">デモページを見る</a>
+        </button>
+        <button class="btn btn--green">
+          <i class="fa-solid fa-copy"></i>
+          <a href="#">コードをコピー</a>
+        </button>
+      </div>
+    </div>
+  </main>
+  <section class="code">
+    <nav class="code__nav">
+      <ul>
+        <li class="code__list" data-tab="1">
+          <a href="#" class="code__link"><i class="fa-brands fa-html5"></i></a>
+        </li>
+        <li class="code__list" data-tab="2">
+          <a href="#" class="code__link"><i class="fa-solid fa-code"></i></a>
+        </li>
+        <li class="code__list active-icon" data-tab="3">
+          <a href="#" class="code__link"><i class="fa-brands fa-js"></i></a>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+    </nav>
+    <button class="code__copy" aria-label="Copy Code">
+      <i class="fa-solid fa-copy"></i>
+    </button>
+    <pre class="source-code source-code--1">
+      <code>
+      </code>
+    </pre>
+    <pre class="source-code source-code--2">
+      <code>
+      </code>
+    </pre>
+    <pre class="source-code source-code--3 clicked">
+      <code>
+        class ScrollObserver {
+          constructor(els, cb, options) {
+              this.els = document.querySelectorAll(els);
+              const defaultOptions = {
+                  root: null,
+                  rootMargin: "0px",
+                  threshold: 0,
+                  once: true
+              };
+              this.cb = cb;
+              this.options = Object.assign(defaultOptions, options);
+              this.once = this.options.once;
+              this._init();
+          }
+          _init() {
+              const callback = function (entries, observer) {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          this.cb(entry.target, true);
+                          if(this.once) {
+                              observer.unobserve(entry.target);
+                          }
+                      } else {
+                          this.cb(entry.target, false);
+                      }
+                  });
+              };
+              this.io = new IntersectionObserver(callback.bind(this), this.options);
+              this.els.forEach(el => this.io.observe(el));
+          }
+          destroy() {
+              this.io.disconnect();
+          }
+        }
+      </code>
+    </pre>
+  </section>
+  <button class="X-btn">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <script src="script/main.js"></script>
+</body>
+
+</html>
